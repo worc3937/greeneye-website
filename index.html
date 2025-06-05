@@ -388,11 +388,11 @@
 
             <div class="stats">
                 <div class="stat-card">
-                    <div class="stat-number">247</div>
+                    <div class="stat-number" id="influencerCount">247</div>
                     <div>Influencers Assessed</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">15.2K</div>
+                    <div class="stat-number" id="contentReviewCount">15.2K</div>
                     <div>Content Reviews</div>
                 </div>
             </div>
@@ -652,6 +652,11 @@
                         if (parsedData.length > 0) {
                             influencers = parsedData;
                             console.log(`✅ Successfully loaded ${influencers.length} influencers using ${approach.name}`);
+                            
+                            // Update the live counts on homepage
+                            updateInfluencerCount(influencers.length);
+                            updateContentReviewCount(influencers);
+                            
                             showDataSourceMessage(`✅ Successfully loaded ${influencers.length} influencers from Google Sheets using ${approach.name}!`, 'success');
                             return;
                         } else {
@@ -670,6 +675,10 @@
                 console.error('Error loading Google Sheets data:', error);
                 console.log('Using fallback data instead');
                 influencers = fallbackInfluencers;
+                
+                // Update counts even with fallback data
+                updateInfluencerCount(influencers.length);
+                updateContentReviewCount(influencers);
                 
                 // Show user-friendly message
                 showDataSourceMessage(`
@@ -726,6 +735,62 @@
                     messageDiv.remove();
                 }
             }, timeout);
+        }
+
+        // Function to update the live influencer count
+        function updateInfluencerCount(count) {
+            const countElement = document.getElementById('influencerCount');
+            if (countElement) {
+                // Add a nice animation effect
+                countElement.style.transform = 'scale(1.1)';
+                countElement.style.transition = 'transform 0.3s ease';
+                
+                setTimeout(() => {
+                    countElement.textContent = count;
+                    countElement.style.transform = 'scale(1)';
+                }, 150);
+                
+                console.log(`Updated influencer count to: ${count}`);
+            }
+        }
+
+        // Function to update the live content review count
+        function updateContentReviewCount(influencersData) {
+            const countElement = document.getElementById('contentReviewCount');
+            if (countElement && influencersData) {
+                // Calculate total videos reviewed
+                let totalVideos = 0;
+                influencersData.forEach(influencer => {
+                    // Convert videosReviewed to number, handle various formats
+                    const videos = parseInt(influencer.videosReviewed) || 0;
+                    totalVideos += videos;
+                });
+                
+                // Format the number nicely (e.g., 1234 -> 1.2K)
+                const formattedCount = formatNumber(totalVideos);
+                
+                // Add animation effect
+                countElement.style.transform = 'scale(1.1)';
+                countElement.style.transition = 'transform 0.3s ease';
+                
+                setTimeout(() => {
+                    countElement.textContent = formattedCount;
+                    countElement.style.transform = 'scale(1)';
+                }, 150);
+                
+                console.log(`Updated content review count to: ${totalVideos} (displayed as ${formattedCount})`);
+            }
+        }
+
+        // Function to format numbers nicely (1234 -> 1.2K)
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            } else {
+                return num.toString();
+            }
         }
 
         function showPage(pageId) {
