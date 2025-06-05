@@ -95,7 +95,7 @@
         }
 
         .logo::before {
-            content: '🛡️';
+            content: '';
             font-size: 32px;
         }
 
@@ -201,7 +201,7 @@
         .hero-emoji {
             font-size: 64px;
             margin-bottom: 24px;
-            display: block;
+            display: none;
         }
 
         .hero h1 {
@@ -283,7 +283,7 @@
         .section-icon {
             font-size: 48px;
             margin-bottom: 32px;
-            display: block;
+            display: none;
         }
 
         .section-title {
@@ -345,7 +345,7 @@
         .feature-icon {
             font-size: 40px;
             margin-bottom: 24px;
-            display: block;
+            display: none;
         }
 
         .feature-title {
@@ -891,7 +891,7 @@
                 <div class="logo">GreenEye</div>
                 <div class="nav-buttons">
                     <button class="nav-btn active" onclick="showPage('home')">Home</button>
-                    <button class="nav-btn" onclick="showPage('influencers')">Browse Analyses</button>
+                    <button class="nav-btn" onclick="showPage('influencers')">Browse Influencers</button>
                     <button class="nav-btn" onclick="showPage('request')">Request Analysis</button>
                 </div>
             </nav>
@@ -901,11 +901,9 @@
         <div id="home" class="page active">
             <div class="hero">
                 <div class="hero-content">
-                    <span class="hero-emoji">🧠</span>
                     <h1>What Is Your Child Really Watching?</h1>
                     <p class="hero-subtitle">
-                        <strong>Online videos are shaping children's worldview and give them unique opportunities to learn and explore their ideas, but it's important to understand the content children are being exposed to.</strong> 
-                        We help parents understand the messages kids are being exposed to watching on YouTube and other platforms.
+                        <strong>Online videos are shaping how children see the world — offering powerful opportunities to learn, explore, and grow. But not all content is safe.</strong> We help parents understand the messages their children are exposed to on YouTube and other platforms, so they can make informed choices and spot potential risks early.
                     </p>
                 </div>
             </div>
@@ -913,7 +911,7 @@
             <div class="stats">
                 <div class="stat-card">
                     <div class="stat-number" id="influencerCount">247</div>
-                    <div class="stat-label">Channels Analyzed</div>
+                    <div class="stat-label">Influencers Analyzed</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="contentReviewCount">15.2K</div>
@@ -923,20 +921,18 @@
 
             <div class="content-section">
                 <h2 class="section-title">
-                    <span class="section-icon">🔍</span>
                     How It Works
                 </h2>
                 <ul class="benefits-list">
-                    <li><strong>Analyze any YouTube channel</strong> — just paste the link.</li>
-                    <li>Our system breaks down the videos into short sections.</li>
-                    <li>It flags <strong>misinformation</strong>, <strong>controversial topics</strong>, <strong>discriminatory speech</strong>, and <strong>emotive rhetoric</strong>.</li>
-                    <li>You'll receive a clear, jargon-free <strong>Safety Report</strong> designed for parents.</li>
+                    <li>Our expert team conducts comprehensive <strong>content analysis</strong> of influencer videos and social media posts.</li>
+                    <li>We examine <strong>sentiment patterns</strong>, language use, and underlying messaging across multiple content pieces.</li>
+                    <li>Specialists evaluate content for <strong>age-appropriateness</strong>, potential bias, and emotional manipulation techniques.</li>
+                    <li>Each analysis results in a detailed <strong>safety assessment</strong> with clear recommendations for parents.</li>
                 </ul>
             </div>
 
             <div class="content-section" style="background: var(--emerald-50);">
                 <h2 class="section-title">
-                    <span class="section-icon">✅</span>
                     What You'll Learn
                 </h2>
                 <ul class="benefits-list">
@@ -949,7 +945,6 @@
 
             <div class="content-section">
                 <h2 class="section-title">
-                    <span class="section-icon">🧾</span>
                     Why This Matters
                 </h2>
                 <div class="section-content">
@@ -958,22 +953,18 @@
                 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <span class="feature-icon">🚫</span>
                         <h3 class="feature-title">Misinformation</h3>
                         <p class="feature-description">False or misleading information presented as fact, often designed to influence beliefs or behaviors.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">⚡</span>
                         <h3 class="feature-title">Extremist Ideologies</h3>
                         <p class="feature-description">Radical viewpoints that promote division, hatred, or dangerous worldviews targeting impressionable minds.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">👥</span>
                         <h3 class="feature-title">Discriminatory Content</h3>
                         <p class="feature-description">Gender or racial prejudice disguised as entertainment or education, normalizing harmful stereotypes.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">🎭</span>
                         <h3 class="feature-title">Emotional Manipulation</h3>
                         <p class="feature-description">Overly emotional, persuasive rhetoric designed to bypass critical thinking and create strong reactions.</p>
                     </div>
@@ -988,12 +979,12 @@
         <!-- Influencers Page -->
         <div id="influencers" class="page">
             <div class="page-header">
-                <h1 class="page-title">Browse Channel Analyses</h1>
+                <h1 class="page-title">Browse Influencer Analyses</h1>
                 <p class="page-subtitle">Explore detailed safety assessments of popular YouTube channels and content creators. Click any card to view the complete analysis report.</p>
             </div>
             
             <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Search channels by name, platform, or category..." onkeyup="filterInfluencers(this.value)">
+                <input type="text" class="search-input" placeholder="Search influencers by name, platform, or category..." onkeyup="filterInfluencers(this.value)">
             </div>
 
             <div class="influencer-grid" id="influencerGrid">
@@ -1004,15 +995,15 @@
         <!-- Request Page -->
         <div id="request" class="page">
             <div class="page-header">
-                <h1 class="page-title">Request Channel Analysis</h1>
+                <h1 class="page-title">Request Influencer Analysis</h1>
                 <p class="page-subtitle">Submit a YouTube channel or content creator for safety analysis. We'll provide a comprehensive report within 7-14 days.</p>
             </div>
             
             <div class="form-container">
                 <form onsubmit="submitRequest(event)">
                     <div class="form-group">
-                        <label class="form-label" for="influencerName">Channel Name/Handle</label>
-                        <input type="text" class="form-input" id="influencerName" required placeholder="e.g., @username or Channel Name">
+                        <label class="form-label" for="influencerName">Influencer Name/Handle</label>
+                        <input type="text" class="form-input" id="influencerName" required placeholder="e.g., @username or Influencer Name">
                     </div>
                     
                     <div class="form-group">
@@ -1029,7 +1020,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="profileUrl">Channel URL</label>
+                        <label class="form-label" for="profileUrl">Influencer URL</label>
                         <input type="url" class="form-input" id="profileUrl" placeholder="https://...">
                     </div>
                     
@@ -1050,7 +1041,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="reason">Why should we analyze this channel?</label>
+                        <label class="form-label" for="reason">Why should we analyze this influencer?</label>
                         <textarea class="form-input form-textarea" id="reason" placeholder="Tell us why this analysis would be valuable for parents and the community..."></textarea>
                     </div>
                     
@@ -1236,7 +1227,7 @@
                             updateInfluencerCount(influencers.length);
                             updateContentReviewCount(influencers);
                             
-                            showNotification(`✅ Successfully loaded ${influencers.length} channels from database!`, 'success');
+                            showNotification(`Successfully loaded ${influencers.length} influencers from database!`, 'success');
                             return;
                         } else {
                             throw new Error('No valid data found in CSV');
@@ -1261,9 +1252,9 @@
                 
                 // Show user-friendly message
                 showNotification(`
-                    ❌ Unable to connect to database. Using sample data for demonstration.
+                    Unable to connect to database. Using sample data for demonstration.
                     <br><br>
-                    <strong>Note:</strong> In production, this connects to a live database of channel analyses.
+                    <strong>Note:</strong> In production, this connects to a live database of influencer analyses.
                 `, 'error');
             }
         }
@@ -1421,49 +1412,49 @@
                 </div>
                 
                 <div class="report-section">
-                    <h4>📊 1. Overview</h4>
+                    <h4>1. Overview</h4>
                     <p><strong>Channel/Speaker Name:</strong> ${influencer.name}</p>
                     <p><strong>Number of Videos Reviewed:</strong> ${influencer.videosReviewed}</p>
                     <p><strong>Content Date Range:</strong> ${influencer.dateRange}</p>
                 </div>
                 
                 <div class="report-section">
-                    <h4>🎯 2. Main Topics</h4>
+                    <h4>2. Main Topics</h4>
                     <p><strong>Common Themes:</strong> ${influencer.mainTopics}</p>
                     <p><strong>Appropriateness for Teens:</strong> ${influencer.teenAppropriateness}</p>
                 </div>
                 
                 <div class="report-section">
-                    <h4>🚫 3. Disinformation</h4>
+                    <h4>3. Disinformation</h4>
                     <p><strong>Presence of Misinformation:</strong> ${influencer.disinformationPresence}</p>
                     <p><strong>Nature and Number:</strong> ${influencer.disinformationNature}</p>
                 </div>
                 
                 <div class="report-section">
-                    <h4>⚠️ 4. Controversial Material</h4>
+                    <h4>4. Controversial Material</h4>
                     <p><strong>Flagged Segments:</strong> ${influencer.controversialMaterial}</p>
                     <p><strong>Reasons for Controversy:</strong> ${influencer.controversialReasons}</p>
                 </div>
                 
                 <div class="report-section">
-                    <h4>👥 5. Discriminatory Language</h4>
+                    <h4>5. Discriminatory Language</h4>
                     <p><strong>Targeted Groups:</strong> ${influencer.discriminatoryLanguage}</p>
                     <p><strong>Tone:</strong> ${influencer.discriminatoryTone}</p>
                 </div>
                 
                 <div class="report-section">
-                    <h4>🎭 6. Emotional Tone</h4>
+                    <h4>6. Emotional Tone</h4>
                     <p><strong>Overall Tone:</strong> ${influencer.emotionalTone}</p>
                     <p><strong>Presentation of Opinions:</strong> ${influencer.opinionPresentation}</p>
                 </div>
                 
                 <div class="report-section">
-                    <h4>📈 7. Shifts in Focus</h4>
+                    <h4>7. Shifts in Focus</h4>
                     <p><strong>Content Evolution:</strong> ${influencer.contentEvolution}</p>
                 </div>
                 
                 <div class="report-section">
-                    <h4>🛡️ 8. Parental Risk Assessment</h4>
+                    <h4>8. Parental Risk Assessment</h4>
                     <p><strong>Content Suitability:</strong> ${influencer.parentalRisk}</p>
                 </div>
                 
@@ -1499,8 +1490,7 @@
             if (filteredInfluencers.length === 0) {
                 grid.innerHTML = `
                     <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--slate-500);">
-                        <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
-                        <h3 style="margin-bottom: 8px;">No channels found</h3>
+                        <h3 style="margin-bottom: 8px;">No influencers found</h3>
                         <p>Try adjusting your search terms or browse all available analyses.</p>
                     </div>
                 `;
@@ -1522,7 +1512,7 @@
             
             // Simulate form submission
             showNotification(`
-                🎉 <strong>Analysis request submitted successfully!</strong><br>
+                <strong>Analysis request submitted successfully!</strong><br>
                 We've received your request for <strong>${formData.influencerName}</strong>. 
                 You'll receive an email confirmation shortly, and we'll notify you when the analysis is complete (typically within 7-14 days).
             `, 'success');
