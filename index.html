@@ -401,6 +401,7 @@
             background: linear-gradient(135deg, var(--emerald-50), rgba(255,255,255,0.9));
             padding: 48px 60px;
             border-bottom: 1px solid var(--emerald-100);
+            text-align: center;
         }
 
         .page-title {
@@ -415,6 +416,7 @@
             font-size: 18px;
             color: var(--slate-600);
             max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Search Bar */
@@ -853,7 +855,67 @@
             }
         }
 
-        @media (max-width: 480px) {
+        /* Membership Banner */
+        .membership-banner {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            background: linear-gradient(135deg, var(--emerald-600), var(--emerald-700));
+            color: white;
+            padding: 16px 0;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .membership-banner:hover {
+            background: linear-gradient(135deg, var(--emerald-700), var(--emerald-800));
+            transform: translateY(-1px);
+        }
+
+        .membership-banner-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .membership-banner-text {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .membership-banner-cta {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .membership-banner-cta:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .membership-banner-content {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .membership-banner-text {
+                font-size: 14px;
+            }
+        }
             nav {
                 padding: 16px 20px;
             }
@@ -885,6 +947,13 @@
     </style>
 </head>
 <body>
+    <div class="membership-banner">
+        <div class="membership-banner-content">
+            <span class="membership-banner-text">Get access to detailed influencer risk reports</span>
+            <a href="mailto:signup@greeneye.com" class="membership-banner-cta" style="color: white; text-decoration: none;">Become a Member</a>
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <nav>
