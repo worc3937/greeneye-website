@@ -85,7 +85,7 @@
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 36px;
             font-weight: 800;
             color: var(--emerald-700);
             letter-spacing: -0.025em;
@@ -901,9 +901,12 @@
         <div id="home" class="page active">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>What Is Your Child Really Watching?</h1>
+                    <h1>Online content moves fast, GreenEye helps you move faster</h1>
                     <p class="hero-subtitle">
-                        <strong>Online videos are shaping how children see the world — offering powerful opportunities to learn, explore, and grow. But not all content is safe.</strong> We help parents understand the messages their children are exposed to on YouTube and other platforms, so they can make informed choices and spot potential risks early.
+                        <strong>Online videos are shaping how we see the world — offering powerful opportunities to learn, explore, and grow. But content needs to be understood in its full context, and with new creators arising every day, it can be difficult to understand what we're viewing.</strong>
+                    </p>
+                    <p class="hero-subtitle" style="margin-top: 24px;">
+                        <strong>We help people understand the messages they're seeing, so they can make informed choices about the media diet they, their loved ones or their partners consume and spot potential risks early.</strong>
                     </p>
                 </div>
             </div>
@@ -933,14 +936,23 @@
 
             <div class="content-section" style="background: var(--emerald-50);">
                 <h2 class="section-title">
-                    What You'll Learn
+                    Who Is This For
                 </h2>
-                <ul class="benefits-list">
-                    <li>What topics are being discussed most often?</li>
-                    <li>Are strong opinions or conspiracy theories being promoted?</li>
-                    <li>Is there any harmful, hateful, or emotionally manipulative language?</li>
-                    <li>Should you be worried — or is it safe content?</li>
-                </ul>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3 class="feature-title">Parents</h3>
+                        <p class="feature-description">Wanting to understand the content their children are being exposed to and make informed decisions about digital media consumption.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">News Junkies</h3>
+                        <p class="feature-description">Who want to quickly get up to speed on the latest gurus, thought leaders, and emerging voices shaping public discourse.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Brands</h3>
+                        <p class="feature-description">Who want to do due diligence ahead of potential deals, partnerships, or collaborations with content creators and influencers.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="content-section">
@@ -948,7 +960,7 @@
                     Why This Matters
                 </h2>
                 <div class="section-content">
-                    <p>Kids and teens spend <strong>hours every day on video platforms</strong>. Even smart, curious children can be influenced by content that <strong>seems harmless at first</strong>, but subtly spreads:</p>
+                    <p>Most people now get their news from social media, spending <strong>hours each day on video sites</strong>. Video is the new radio. This new world offers exciting new opportunities, but lacks the editorial rigour of traditional outlets. GreenEye gives you the ability to spot:</p>
                 </div>
                 
                 <div class="features-grid">
@@ -980,7 +992,7 @@
         <div id="influencers" class="page">
             <div class="page-header">
                 <h1 class="page-title">Browse Influencer Analyses</h1>
-                <p class="page-subtitle">Explore detailed safety assessments of popular YouTube channels and content creators. Click any card to view the complete analysis report.</p>
+                <p class="page-subtitle">Explore detailed risk assessments of popular YouTube channels and content creators. Click any card to view the complete analysis report.</p>
             </div>
             
             <div class="search-bar">
@@ -996,7 +1008,7 @@
         <div id="request" class="page">
             <div class="page-header">
                 <h1 class="page-title">Request Influencer Analysis</h1>
-                <p class="page-subtitle">Submit a YouTube channel or content creator for safety analysis. We'll provide a comprehensive report within 7-14 days.</p>
+                <p class="page-subtitle">Submit a YouTube channel or content creator for risk assessment analysis.</p>
             </div>
             
             <div class="form-container">
@@ -1407,7 +1419,10 @@
                     <div class="influencer-avatar">${influencer.avatar}</div>
                     <div class="influencer-info">
                         <h2 style="margin: 0; font-size: 24px; color: var(--slate-900);">${influencer.name}</h2>
-                        <div class="platform-badge" style="margin-top: 8px;">${influencer.platform} • ${influencer.followers}</div>
+                        <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap; align-items: center;">
+                            <div class="platform-badge">${influencer.platform} • ${influencer.followers}</div>
+                            <span class="badge ${influencer.recommendation}" style="margin: 0;">Risk Assessment: ${influencer.recommendation}</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1421,12 +1436,12 @@
                 <div class="report-section">
                     <h4>2. Main Topics</h4>
                     <p><strong>Common Themes:</strong> ${influencer.mainTopics}</p>
-                    <p><strong>Appropriateness for Teens:</strong> ${influencer.teenAppropriateness}</p>
+                    <p><strong>Content Evolution:</strong> ${influencer.contentEvolution}</p>
                 </div>
                 
                 <div class="report-section">
                     <h4>3. Disinformation</h4>
-                    <p><strong>Presence of Misinformation:</strong> ${influencer.disinformationPresence}</p>
+                    <p><strong>Level of Disinformation:</strong> ${influencer.disinformationPresence}</p>
                     <p><strong>Nature and Number:</strong> ${influencer.disinformationNature}</p>
                 </div>
                 
@@ -1446,16 +1461,6 @@
                     <h4>6. Emotional Tone</h4>
                     <p><strong>Overall Tone:</strong> ${influencer.emotionalTone}</p>
                     <p><strong>Presentation of Opinions:</strong> ${influencer.opinionPresentation}</p>
-                </div>
-                
-                <div class="report-section">
-                    <h4>7. Shifts in Focus</h4>
-                    <p><strong>Content Evolution:</strong> ${influencer.contentEvolution}</p>
-                </div>
-                
-                <div class="report-section">
-                    <h4>8. Parental Risk Assessment</h4>
-                    <p><strong>Content Suitability:</strong> ${influencer.parentalRisk}</p>
                 </div>
                 
                 <div style="margin-top: 32px; padding: 20px; background: var(--emerald-50); border-radius: 12px; border-left: 4px solid var(--emerald-500);">
